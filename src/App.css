@@ -17,12 +17,13 @@
 .App-header {
   background-color: #61dafb;
   min-height: 10vh;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: center; */
+  font-size: 18px;
   color: white;
+  padding: 10px;
 }
 
 .App-link {
@@ -38,3 +39,5 @@
   }
 }
 .alert-error{color:red;}
+.completed{color:green; font-size:18px; font-weight: 600;}
+.pending{color: orange;font-size:18px; font-weight: 600;}

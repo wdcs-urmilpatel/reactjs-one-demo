@@ -1,20 +1,10 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
-import { isLogin } from "../utils";
+import { Navigate, Outlet } from "react-router-dom";
+import { getToken } from "../utils/index";
 
-const PublicRoute = ({ component: Component, restricted, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        isLogin() && restricted ? (
-          <Redirect to="/dashboard" />
-        ) : (
-          <Component {...props} />
-        )
-      }
-    />
-  );
+// handle the public routes
+const PublicRoutes = () => {
+  return !getToken() ? <Outlet /> : <Navigate to="/dashboard" />;
 };
 
-export default PublicRoute;
+export default PublicRoutes;

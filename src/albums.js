@@ -10,8 +10,14 @@ const Albums = () => {
   const [albumsRecord, setAlbumsRecord] = useState();
   const [photosRecordTotal, setPhotosRecordTotal] = useState();
   const { userData, setUserDetails } = useContext(UserContext);
-  console.log("userData===", userData);
+
   const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("userDataStorge");
+    navigate("/");
+  };
+
   const photosPage = () => {
     navigate(`/photos?albumId=${userData.id}&page=1`);
   };
@@ -35,7 +41,14 @@ const Albums = () => {
   }, []);
   return (
     <>
-      <header className="App-header">Albums </header>
+      <header className="d-flex justify-content-between align-content-center App-header mb-5">
+        <h1>Albums</h1>
+        <div className="">
+          <Button className="btn btn-secondary" onClick={logout}>
+            Logout
+          </Button>
+        </div>
+      </header>
       <div>
         <Container>
           <Row>
